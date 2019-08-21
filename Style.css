@@ -3,7 +3,7 @@ h1{
     font-family:Arial;
 }
 body{
-    background-color: darkcyan;
+    background-color: rgb(101, 190, 190);
     border-color: aqua;
 }
 h2{
@@ -12,3 +12,9 @@ h2{
 a{
     transform-style: initial;
 }
+header{
+    align-content: center;
+    background-color: rgb(127, 176, 196);
+    width: 100%;
+}
+nav
