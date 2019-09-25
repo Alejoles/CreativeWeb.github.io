@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JAVAS</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div id = "grafico"></div>
+
+    <button onclick="aleatorizar()">Aleatorizar</button>
+
+     <script>
+         scater1 = {
+             x : [1,2.5,2,3,4,5],
+             y : [20,10,30,20,50],
+             mode: 'makers'
+         };
+
+         /*scater2 = {
+             x : [1,2.5,2,3,4,5],
+             y : [0,10,20,15,25],
+             mode: 'lines'
+         };
+
+         scater3 = {
+             x : [1,2.5,2,3,4,5],
+             y : [5,15,20,25,30],
+             mode: 'lines + makers'
+         };*/
+
+         data = [scater1];
+
+         Plotly.newPlot('grafico', data);
+
+         function aleatorizar(){
+            Plotly.animate("grafico", {
+             data : [{y:[Math.random(), Math.random(), Math.random(), Math.random(), Math.random()]}]
+         })
+         }
+
+         
+
+
+     </script>
+</body>
+</html>
