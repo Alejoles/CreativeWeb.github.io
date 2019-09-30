@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tarea ejercicio 2</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+</head>
+<body>
+    <div id="graf"></div>
+    <div>
+        <form><p>Categoria &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Conteo</p></form>
+        <form>
+            <input type="text" id="categoria" name="Categoria">
+            <input type="number" id="conteo" name="Conteo">
+            <button onclick="captura()" type="reset">Click</button>
+        </form>
+        <table id="tabla">
+            <td>Categoría</td>
+            <td>Conteo</td>
+        </table>
+    </div>
+    <script>
+
+        var scatter = {
+            type: 'bar',
+            x : [],
+            y : [],
+            mode : 'makers',
+            marker: {
+                color: '#C8A2C8',
+                line: {
+                width: 2.5
+                }
+            }
+        };
+
+        let data = [scatter];
+    
+    function captura(){
+            function obj(categoria, conteo){
+                this.categoria = categoria || "";
+                this.conteo = conteo || "";
+            }
+            let categoria = document.getElementById("categoria").value;
+            let conteo = document.getElementById("conteo").value;
+            let obj1 = new obj(categoria,conteo);
+            agregar(obj1);
+
+            //----------------
+
+            scatter.x.push(categoria);
+            scatter.y.push(conteo);
+
+            var layout = {
+                title: 'Responsive to windows size!',
+                font: {size: 18}
+            };
+
+            Plotly.newPlot('graf', data, layout, {responsive : true});
+
+        }
+
+
+    let db = [];
+    function agregar(obj1){
+        db.push(obj1);
+        document.getElementById("tabla").innerHTML += "<tbody><td>"+obj1.categoria+"</td><td>"+obj1.conteo+"</td></tbody>";
+
+    }
+    </script>
+</body>
+</html>
