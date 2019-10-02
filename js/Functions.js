@@ -42,3 +42,21 @@ function multi(arr1, arr2){
     }
     return anidad;
 }
+
+// Funcion que retorna el máximo usando arguments
+function max(arg){
+    var max = arguments[0];
+    for(var i = 0; i< arguments.length; i++){
+      if(max < arguments[i]){
+        max = arguments[i];
+      }
+    }
+    return max;
+  }
+
+// Funcion de un sólo uso
+numeros.map((arg) => {var max = arg[0]; for(var i = 0; i< arg.length; i++){ if(max < arg[i]){max = arg[i]}} return max; });
+
+// funcion sin nombre
+(function(){ console.log("Esta es una función que no tiene nombre")}());
+
